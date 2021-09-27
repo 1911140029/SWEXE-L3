@@ -1,0 +1,7 @@
+<%= form_for @tweet, url: {action: :update} do |f| %>
+    <p>
+    <%= f.label :message, 'ツイート内容' %><br>
+    <%= f.text_field :message %>
+    </p>
+    <%= f.submit '変更' %>
+<% end %>

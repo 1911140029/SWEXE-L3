@@ -1,0 +1,21 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
+<h1>ホーム</h1>
+<hr> 
+<% @tweets.each do |tweet| %>
+    <p>
+    <%= link_to tweet.message %><br>
+    <% link_to tweet.tdate %>
+    <strong>
+    <%= ((Time.current - tweet.tdate) / 60).floor %>
+    分前
+    </strong>
+    </p>
+    <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+    <%= link_to '表示', "/tweets/#{tweet.id}" %>
+    <%= link_to '編集', "/tweets/#{tweet.id}/edit" %>
+    <hr>
+<% end %>
+<p><%= link_to 'ツイートする', '/tweets/new' %></p>
