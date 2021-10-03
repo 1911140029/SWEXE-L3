@@ -1,21 +1,56 @@
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
-<% end %>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css" >
+    </head>
+    <body>
+        <div id="page">
+            <div id="pagemenu">
+                <header>
+                    <nav>
+                        <h1>🏠　ホーム</h1>
+                        <ul>
+                            <li><a href="." title="通知">＃　話題を検索</a></li>
+                            <li><a href=".">🔔　通知</a></li>
+                            <li><a href=".">✉　メッセージ</a></li>
+                            <li><a href=".">🏷　ブックマーク</a></li>
+                            <li><a href=".">📄　リスト</a></li>
+                            <li><a href=".">😀　プロフィール</a></li>
+                            <li><a href=".">･･･　もっと見る</a></li>
+                        </ul>
+                        <p><%= link_to 'ツイートする', 'new_tweet_path' , class: "link" %></p>
+                    </nav>
+                </header>
+            </div>
+            <div id="pageheader">        
+                <ul>
+                    <li><a href=>ツイート</a></li>
+                    <li><a href=>ツイートと返信</a></li>
+                    <li><a href=>メディア</a></li>
+                    <li><a href=>いいね</a></li>
+                </ul>
+                <% @tweets.each do |tweet| %>
+                    <div id="pagemain">
+                        <div class="sabmenu">
+                            <label for="l-1">
+                                <a class ="clicktxt">…</a>
+                            </label>
+                                <input type="checkbox" id = "l-1"><div class="dsp">
+                                    <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete, class: "link" %>
+                                    <%= link_to '編集', "/tweets/#{tweet.id}/edit", class: "link2" %>
+                                    <%= link_to '表示', "/tweets/#{tweet.id}", class: "link2" %>
+                                </div>
+                        </div>
+                        <span>
+                            <strong>近大✔　</strong>@kindai・
+                            <%= ((Time.current - tweet.tdate) / 60).floor %>分前<br>
+                            <%= tweet.message %><br>
+                            <%= image_tag "/get_image/#{tweet.id}" ,class: "image_size" %>                       
+                        </span>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </body>
+</html>
 
-<h1>ホーム</h1>
-<hr> 
-<% @tweets.each do |tweet| %>
-    <p>
-    <%= link_to tweet.message %><br>
-    <% link_to tweet.tdate %>
-    <strong>
-    <%= ((Time.current - tweet.tdate) / 60).floor %>
-    分前
-    </strong>
-    </p>
-    <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
-    <%= link_to '表示', "/tweets/#{tweet.id}" %>
-    <%= link_to '編集', "/tweets/#{tweet.id}/edit" %>
-    <hr>
-<% end %>
-<p><%= link_to 'ツイートする', '/tweets/new' %></p>

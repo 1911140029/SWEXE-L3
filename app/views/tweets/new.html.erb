@@ -7,10 +7,17 @@
 </ul>
 <% end %>
 
+<div id="form">
+    <%= render "form" %>
+</div>
 <%= form_for @tweet, url: {action: :create} do |f| %>
     <p>
     <%= f.label :message, 'ツイート内容' %><br>
     <%= f.text_field :message %>
+    </p>
+    <p>
+    <%= f.label :file, 'ファイル' %>
+    <%= f.file_field :file %>
     </p>
     <%= f.submit 'ツイートする' %>
 <% end %>

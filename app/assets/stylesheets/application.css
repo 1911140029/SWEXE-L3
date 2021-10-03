@@ -1,15 +1,169 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+#page{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+h1{
+    background-color:#dddddd;
+    padding:10px 0 10px 30px;
+    border-radius:20px;
+    font-weight: bolder;
+}
+
+#pagemenu{
+    float:left;
+    width:250px;
+    font-weight: inherit;
+}
+
+.link {
+    text-decoration: none;
+}
+
+#pagemenu .link{
+    color:white;
+}
+
+#pagemain .link{
+    color:red;
+}
+
+#pagemain .link:hover{
+    font-size:20px;
+    color:red;
+}
+
+#pagemain .link2{
+    color:black;
+    text-decoration: none;
+}
+
+#pagemain .link2:hover{
+    font-size:20px;
+}
+
+#pageheader{
+    float:right;
+    width:700px;
+}
+
+#pageheader ul{
+    padding:15px 0 12px 10px;
+    border:solid 1px #DDD ;
+}
+
+#pageheader li{
+    display: inline;
+}
+
+#pageheader li a{
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 15px;
+    margin: 0 25px 0 0;
+    color: #999;
+    padding: 8px;
+}
+    
+#pageheader a:hover {
+    border-bottom: 7px solid #33CCFF;
+    color:black;
+}
+
+#pagemain{
+    border-style:none solid solid solid ;
+    border-width: 1px ;
+    border-color: #DDD;
+    padding:30px 40px 50px 40px;
+    margin:-16px 0 0 0;
+    
+}
+
+#pagemain ul{
+    width: 150px;
+}
+
+#pagemain li{
+    display:block;
+}
+
+#pagemain span:before{
+    content:'';
+    display:inline-block;
+    width:50px;
+    height:50px;
+    background-image: url(twitter.png);
+    background-size:contain;
+    vertical-align: middle;
+}
+
+li{
+    list-style:none;
+    font-size:20px;
+    padding:16px;
+    margin:8px
+}
+
+nav p{
+    color:#FFFFFF;
+    background-color:#33CCFF;
+    text-align:center;
+    padding:15px 0;
+    font-size:20px;
+    font-weight: bolder;
+    border-radius: 20px;
+}
+
+nav p:hover {
+    background-color:#3399FF;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li a{
+    text-decoration: none;
+    padding: 8px;
+    color: #000;
+}
+    
+nav li a:hover {
+    background-color:#777;
+    color: white;
+}
+
+.image_size{
+    width: 630px;
+    max-height: 700px;
+    border-radius: 5%;
+}
+
+
+
+
+
+
+
+
+
+.clicktxt {
+    padding:15px;
+    float:right;
+}
+
+.sabmenu input {
+    display: none;
+}
+
+.sabmenu .dsp {
+    opacity: 0;
+}
+
+.sabmenu input:checked ~ .dsp {
+    opacity: 1;
+}
+
+
